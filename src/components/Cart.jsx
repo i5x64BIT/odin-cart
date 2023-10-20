@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CartItem from "./CartItem";
+import { CartContext } from "../CartContext";
 
-export default function Cart({ cart, handleCartRemove }) {
+export default function Cart() {
+  const { cart } = useContext(CartContext);
+
   const [isCartOpen, setCartOpen] = useState(false);
   const returnValue = [
     <button className="nav-button" onClick={() => setCartOpen(!isCartOpen)}>
@@ -17,7 +20,7 @@ export default function Cart({ cart, handleCartRemove }) {
       <div className="cart-container">
         {cart && cart.length ? (
           [
-            ...cart.map((i) => <CartItem key={i.id} item={i} handleCartRemove={handleCartRemove}/>),
+            ...cart.map((i) => <CartItem key={i.id} item={i}/>),
             <button className="btn-primary">Procceed to Checkout</button>,
           ]
         ) : (

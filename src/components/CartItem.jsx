@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../CartContext";
 
-export default function CartItem({ item, handleCartRemove }) {
+export default function CartItem({ item }) {
+  const { removeFromCart } = useContext(CartContext);
+
   const [count, setCount] = useState(1);
-
   return (
     <div className="cart-item">
-      <button className="btn-sub" onClick={() => handleCartRemove(item.id)}>x</button>
+      <button className="btn-sub" onClick={() => removeFromCart(item.id)}>
+        x
+      </button>
       <img src={item.image} alt="" />
       <h3>{item.title}</h3>
       <div className="controls" aria-description="Item quantity controls">

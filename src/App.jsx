@@ -1,15 +1,18 @@
-import Sidebar from './components/Sidebar';
-import Content from './components/Content';
-import { useState } from 'react';
+import Sidebar from "./components/Sidebar";
+import Content from "./components/Content";
+import { useState } from "react";
+import { CartContextProvider } from "./CartContext";
 
 function App() {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
   return (
     <>
-      <Sidebar cart={cart} setCart={setCart}/>
-      <Content cart={cart} setCart={setCart}/>
+      <CartContextProvider>
+        <Sidebar/>
+        <Content cart={cart} setCart={setCart} />
+      </CartContextProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
