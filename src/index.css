@@ -124,7 +124,7 @@ nav .nav-cart .nav-button{
   text-align: center;
 }
 .card > img{
-  max-width: 100%;
+  max-width: 75%;
   height: 300px;
   object-fit: contain;
   justify-self: center;
@@ -304,4 +304,31 @@ nav a:hover{
 }
 .item-container ul button, .item-container ul a{
   min-width: 100%;
+}
+
+/* Similar Items Carousel */
+.similar-container{
+  padding-top: 7em;
+}
+.similar-container h3{
+  margin: 0;
+  font-size: 1.8em;
+  text-decoration: underline;
+}
+.carousel-container .wrapper{
+  display: flex;
+  overflow-x: scroll;
+  gap: 1em;
+  padding: 2em;
+}
+.carousel-container .card{
+  width: 15em;
+  padding: 1em;
+  font-size: .6rem;
+}
+.carousel-container .card img{
+  aspect-ratio: 1/1;
+  margin: 0;
+  padding: 0;
+  max-height: 10em;
 }

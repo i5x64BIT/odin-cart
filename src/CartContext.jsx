@@ -6,6 +6,7 @@ const CartContext = createContext({
   products: [],
   addToCart: () => {},
   removeFromCart: () => {},
+  updateProducts: () => {}
 });
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
