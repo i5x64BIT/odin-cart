@@ -13,7 +13,7 @@ export default function Products() {
       {products ? (
         products.map((p) => <ProductCard product={p} />)
       ) : (
-        <p>Loading Products...</p>
+        <p className="content">Loading Products...</p>
       )}
     </div>
   );

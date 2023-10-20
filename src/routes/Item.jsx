@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import AddToCartButton from "../components/AddToCartButton";
 import { CartContext } from "../CartContext";
 import { useLocation } from "react-router-dom";
@@ -7,10 +7,23 @@ import ProductCarousel from "../components/ProductCarousel";
 export default function Item() {
   const { products, updateProducts } = useContext(CartContext);
 
+  useEffect(() => {
+    if(!products.length){
+      updateProducts();
+    }
+  }, []);
+
   const path = useLocation().pathname;
   const key = path.split("/")[2];
 
   const item = products.find((i) => i.id === Number.parseInt(key));
+
+  if(products.length > 0 && !item){
+    return <p className="content">This item does not exist</p>
+  }
+  if(!item){
+    return <p className="content">Loadin Item...</p>
+  }
   return (
     <div className="content">
       <section className="item-container">
